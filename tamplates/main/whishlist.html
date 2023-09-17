@@ -1,0 +1,93 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+    <!-- page-banner-area-start -->
+    <div class="page-banner-area page-banner-height-2" data-background="{% static 'assets/img/banner/page-banner-4.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page-banner-content text-center">
+                        <h4 class="breadcrumb-title">Wishlist</h4>
+                        <div class="breadcrumb-two">
+                            <nav>
+                               <nav class="breadcrumb-trail breadcrumbs">
+                                  <ul class="breadcrumb-menu">
+                                     <li class="breadcrumb-trail">
+                                        <a href="index.html"><span>Home</span></a>
+                                     </li>
+                                     <li class="trail-item">
+                                        <span>Wishlist</span>
+                                     </li>
+                                  </ul>
+                               </nav> 
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-banner-area-end -->
+
+    <!-- cart-area-start -->
+    
+
+    <section class="cart-area pb-120 pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="#">
+                        <div class="table-content table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail">Images</th>
+                                        <th class="cart-product-name">Product Name</th>
+                                        <th class="product-price">Unit Price</th>
+                                        <th>Show in Cart</th>
+                                        <th class="product-remove">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in order %}
+                                    <tr>
+                                        <td class="cart_product">
+                                            <a href=""><img src="{{i.image}}" alt=""></a>
+                                        </td>
+                                        <td class="cart_description">
+                                            <h4><a href="">{{i.products}}</a></h4>
+                                        </td>
+                                        <td class="cart_price">
+                                            <p>₹ {{i.price}}</p>
+                                        </td>
+                                        <td class="cart_price">
+                                            <div class="cart_quantity_button">
+                                                <p>{{i.Quantity}}</p>
+                                            </div>
+                                        </td>
+                                        <td class="cart_quantity">
+                                            <p class="cart_total_price">₹ {{i.total}}</p>
+                                        </td>
+                                        <td class="cart_delete">
+                                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- cart-area-end -->
+
+ 
+</main>
+
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="shop-area mb-20">
+    <div class="container">
+
+
+        <div class="row">
+            
+             <div class="col-xl-3 col-lg-4">
+                <div class="product-widget mb-30">
+                    <h5 class="pt-title">Special Offers</h5>
+                    <div class="product__sm mt-20">
+                        <ul>
+                            {% for i in offer %}
+                            <li class="product__sm-item d-flex align-items-center">
+                                <div class="product__sm-thumb mr-20">
+                                    <a href="">
+                                        <img src="/{{i.image}}" alt="" >
+                                    </a>
+                                </div>
+                                <div class="product__sm-content">
+                                    <h5 class="product__sm-title">
+                                        <a href="product-details.html">{{i.name|truncatewords:5}}</a>
+                                    </h5>
+                                    <div class="product__sm-price">
+                                        <span class="price">₹ {{i.price}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xl-9 col-lg-8">
+                <div class="shop-banner mb-30">
+                    <div class="banner-image">
+                        <img class="banner-l" src="{% static 'assets/img/banner/sl-banner.jpg' %}" alt="">
+                        <img class="banner-sm" src="{% static 'assets/img/banner/sl-banner-sm.png' %}" alt="">
+                        <div class="banner-content text-center">
+                            <p class="banner-text mb-30">Hurry Up! <br> Explore More Free Shipping On All Order Over ₹
+                                1000</p>
+                            <a href="shop.html" class="st-btn-d b-radius">Discover now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-lists-top">
+                    <div class="product__filter-wrap">
+                        <div class="row align-items-center">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="productGridTabContent">
+                    <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
+                        <div class="tp-wrapper">
+                            <div class="row g-0" id="filteredProducts">
+                            {% for i in product %}
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item product__item-d">
+                                    <div class="product__thumb fix">
+                                        <div class="product-image w-img">
+                                            <a href="{{i.get_absolute_url}}">
+                                                <img src="{{i.feature_image}}" alt="product" height="190px">
+                                            </a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="{{i.get_absolute_url}}" class="icon-box icon-box-1"
+                                                data-bs-toggle="modal">
+                                                <i class="fal fa-eye"></i>
+                                                <i class="fal fa-eye"></i>
+                                            </a>
+                                            <a href="{% url 'whishlist' %}" class="icon-box icon-box-1">
+                                                <i class="fal fa-heart"></i>
+                                                <i class="fal fa-heart"></i>
+                                            </a>
+                                            <a href="#" class="icon-box icon-box-1">
+                                                <i class="fal fa-layer-group"></i>
+                                                <i class="fal fa-layer-group"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product__content-3">
+                                        <h6><a href="{{i.get_absolute_url}}">{{i.product_name|truncatewords:5}}</a>
+                                        </h6>
+                                        <div class="rating mb-5">
+                                            <ul>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                            </ul>
+                                            <span>(01 review)</span>
+                                        </div>
+                                        <div class="price mb-10">
+                                            <span>₹ {{i.price}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="product__add-cart-s text-center">
+                                        <a href="{% url 'cart_add' i.id %}" type="button"
+                                            class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                            Add to Cart
+                                        </a>
+                                        <button type="button"
+                                            class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                            data-bs-toggle="modal" data-bs-target=#productModalId-{{forloop.counter}}">
+                                            Quick View
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

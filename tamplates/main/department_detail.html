@@ -1,0 +1,108 @@
+
+<!-- product-details-start -->
+<div class="product-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="product__details-nav d-sm-flex align-items-start">
+                    <ul class="nav nav-tabs flex-sm-column justify-content-between" id="productThumbTab" role="tablist">
+                       {% for i in product.product_image_set.all %}
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="thumb{{i.id}}-tab" data-bs-toggle="tab" data-bs-target="#thumb{{i.id}}" type="button" role="tab" aria-controls="thumb{{i.id}}" aria-selected="true">
+                              <img src="{{i.image_url}}" alt="" style="height: 85px; width: 85px;">
+                          </button>
+                        </li>
+                        {% endfor %}
+                       
+                       
+                    </ul>
+                    <div class="product__details-thumb">
+                        <div class="tab-content" id="productThumbContent">
+                            <div class="tab-pane fade show active" id="thumb" role="tabpanel" aria-labelledby="thumb-tab">
+                                <div class="product__details-nav-thumb w-img">
+                                    <img src="{{product.product_image_set.first.image_url}}" alt="" >
+                                </div>
+                            </div>
+                            {% for i in product.product_image_set.all %}
+                            <div class="tab-pane fade show" id="thumb{{i.id}}" role="tabpanel" aria-labelledby="thumb{{i.id}}-tab">
+                                <div class="product__details-nav-thumb w-img">
+                                    <img src="{{i.image_url}}" alt="" >
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="product__details-content">
+                    <h6>{{product.product_name}}</h6>
+                    <div class="pd-rating mb-10">
+                        <ul class="rating">
+                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                        </ul>
+                        <span>(01 review)</span>
+                        <span><a href="#">Add your review</a></span>
+                    </div>
+                    <div class="price mb-10">
+                        <span>₹ {{product.price}}</span>
+                    </div>
+                    <div class="features-des mb-20 mt-10">
+                        <ul>
+                            <li><a href="product-details.html"><i class="fas fa-circle"></i> {{product.product_information|safe|truncatewords:50}}.</a></li>
+                        
+                        </ul>
+                    </div>
+                    <div class="product-stock mb-20">
+                        <h5>Availability: <span> {{product.Availibility}}</span></h5>
+                    </div>
+                    <div class="cart-option mb-15">
+                        <div class="product-quantity mr-20">
+                            <div class="cart-plus-minus p-relative"><input type="text" value="1"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                        </div>
+                        <a href="{% url 'cart_add' product.id %}" class="cart-btn">Add to Cart</a>
+                    </div>
+                    <div class="details-meta">
+                        <div class="d-meta-left">
+                            <div class="dm-item mr-20">
+                                <a href="#"><i class="fal fa-heart"></i>Add to wishlist</a>
+                            </div>
+                            <div class="dm-item">
+                                <a href="#"><i class="fal fa-layer-group"></i>Compare</a>
+                            </div>
+                        </div>
+                        <div class="d-meta-left">
+                            <div class="dm-item">
+                                <a href="#"><i class="fal fa-share-alt"></i>Share</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-tag-area mt-15">
+                        <div class="product_info">
+                            <span class="sku_wrapper">
+                                <span class="title">Model Name:</span>
+                                <span class="sku">{{product.model_name}}</span>
+                            </span>
+                            <span class="posted_in">
+                                <span class="title">Categories:</span>
+                                <a href="#">{{product.categories}}</a>
+                               
+                            </span>
+                            <span class="tagged_as">
+                                <span class="title">Tags:</span>
+                                <a href="#">{{product.Tags}}</a>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- product-details-end -->

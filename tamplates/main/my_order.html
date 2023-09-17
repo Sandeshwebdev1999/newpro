@@ -1,0 +1,71 @@
+{% extends 'main/base2.html' %}
+{% block content %}
+
+<div style="margin-bottom: 40px; margin-top: 40px;">
+    
+    <!-- <section class="cart-area pb-120 pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="#">
+                        <div class="table-content table-responsive">
+                            <table class="table">
+                                {% for i in order %}
+                                <thead>
+                                    <tr>
+                                        <th>Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{i.firstname}}</td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail"></th>
+                                        <th class="cart-product-name">Product Name</th>
+                                        <th class="product-price">Price</th>
+                                        <th class="product-quantity">Quantity</th>
+                                        <th class="product-address">Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in order %}
+                                    <tr>
+                                        <td class="cart_product">
+                                            <a href=""><img src="{{i.image}}" alt=""></a>
+                                        </td>
+                                        <td class="cart_description">
+                                            <h4><a href="">{{i.products}}</a></h4>
+                                        </td>
+                                        <td class="cart_price">
+                                            <p>₹ {{i.price}}</p>
+                                        </td>
+                                        <td class="cart_price">
+                                            <div class="cart_quantity_button">
+                                                <p>{{i.Quantity}}</p>
+                                            </div>
+                                        </td>
+                                        <td class="cart_quantity">
+                                            <p class="cart_total_price">₹ {{i.total}}</p>
+                                        </td>
+                                        <td class="cart_address">
+                                            <p class="cart_address">₹ {{i.total}}</p>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+</div>
+
+{% endblock %}

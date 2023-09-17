@@ -1,0 +1,26 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+{% block content %}
+ <!-- Thank You area start -->
+ <div class="thank-you-area">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-8" style="text-align: center; margin: 50px;">
+                <div class="inner_complated">
+                    <div class="logo_image"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></div>
+                    <p class="logo_image" style="margin-top: 20px;">Thank you for ordering in our store. You will receive a confirmation
+                        email shortly.</p>
+                    <div class="btn_cmpted">
+                        <a href="shop-4-column.html" class="shop-btn" title="Go To Shop"><h5>Continue Shopping</h5> </a>
+                    </div>
+                </div>
+                <div class="main_quickorder text-align-center">
+                    <h3 class="title">Call Us for Quick Order</h3>
+                    <div class="cntct typewriter-effect"><span class="call_desk"><a href="tel:+01234567890" id="typewriter_num">01 2345 6789</a></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Thank You area end -->
+{% endblock %}
