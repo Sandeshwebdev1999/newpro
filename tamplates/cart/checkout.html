@@ -19,7 +19,7 @@
                                 <nav class="breadcrumb-trail breadcrumbs">
                                     <ul class="breadcrumb-menu">
                                         <li class="breadcrumb-trail">
-                                            <a href="index.html"><span>Home</span></a>
+                                            <a href="#"><span>Home</span></a>
                                         </li>
                                         <li class="trail-item">
                                             <span>Checkout</span>
@@ -236,7 +236,7 @@
                                                 <ul>
                                                     {% if cart_total_amount > 500 %}
                                                     <li>
-                                                        <input type="radio" name="shipping">
+                                                        <input type="radio" name="shipping" required>
                                                         <label>
                                                             <label>Free Shipping:</label>
                                                             <!-- Flat Rate: <span class="amount">$7.00</span> -->
@@ -257,7 +257,7 @@
                                             <th>Order Total</th>
                                             <td>₹ <input value="{{ cart_total_amount }}" id="amount" name="amount"
                                                     readonly style="text-align: center;"></td>
-                                            <!-- <td><strong><span class="amount">₹{{ cart_total_amount }}</span></strong> -->
+                                            <td><strong><span class="amount">₹{{ cart_total_amount }}</span></strong>
                                             </td>
                                         </tr>
                                     </tfoot>
